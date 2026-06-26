@@ -24,8 +24,8 @@ ENTITY_SPEED = {
     'Level5Bg0': 0,
     'Level6Bg0': 0,
     'Level7Bg0': 0,
-    'Player1': 3,
-    'Player1Shot': 1,
+    'Player1': 6,
+    'Player1Shot': 5,
     'Player2': 3,
     'Player2Shot': 3,
     'Enemy1': 1,
@@ -36,11 +36,11 @@ ENTITY_SPEED = {
     'Enemy6': 1,
     'Enemy7': 1,
     'Enemy1Shot': 5,
-    'Enemy2Shot': 2,
-    'Enemy3Shot': 2,
-    'Enemy4Shot': 2,
-    'Enemy5Shot': 2,
-    'Enemy6Shot': 2,
+    'Enemy2Shot': 6,
+    'Enemy3Shot': 7,
+    'Enemy4Shot': 8,
+    'Enemy5Shot': 9,
+    'Enemy6Shot': 10,
     'Enemy7Shot': 15,
 }
 
@@ -53,7 +53,7 @@ ENTITY_DAMAGE = {
     'Level6Bg0': 0,
     'Level7Bg0': 0,
     'Player1': 1,
-    'Player1Shot': 25,
+    'Player1Shot': 20,
     'Player2': 1,
     'Player2Shot': 20,
     'Enemy1': 1,
@@ -64,11 +64,11 @@ ENTITY_DAMAGE = {
     'Enemy6': 1,
     'Enemy7': 1,
     'Enemy1Shot': 20,
-    'Enemy2Shot': 15,
-    'Enemy3Shot': 2,
-    'Enemy4Shot': 2,
-    'Enemy5Shot': 2,
-    'Enemy6Shot': 2,
+    'Enemy2Shot': 20,
+    'Enemy3Shot': 20,
+    'Enemy4Shot': 20,
+    'Enemy5Shot': 20,
+    'Enemy6Shot': 20,
     'Enemy7Shot': 50,
 }
 
@@ -85,12 +85,12 @@ ENTITY_SCORE = {
     'Player2': 0,
     'Player2Shot': 0,
     'Enemy1': 100,
-    'Enemy2': 125,
-    'Enemy3': 125,
-    'Enemy4': 125,
-    'Enemy5': 125,
-    'Enemy6': 125,
-    'Enemy7': 125,
+    'Enemy2': 150,
+    'Enemy3': 200,
+    'Enemy4': 250,
+    'Enemy5': 300,
+    'Enemy6': 350,
+    'Enemy7': 10,
     'Enemy1Shot': 0,
     'Enemy2Shot': 0,
     'Enemy3Shot': 0,
@@ -113,13 +113,13 @@ ENTITY_HEALTH = {
     'Player1Shot': 1,
     'Player2': 300,
     'Player2Shot': 1,
-    'Enemy1': 50,
+    'Enemy1': 40,
     'Enemy2': 60,
-    'Enemy3': 60,
-    'Enemy4': 60,
-    'Enemy5': 60,
-    'Enemy6': 60,
-    'Enemy7': 60,
+    'Enemy3': 80,
+    'Enemy4': 80,
+    'Enemy5': 100,
+    'Enemy6': 100,
+    'Enemy7': 200,
     'Enemy1Shot': 1,
     'Enemy2Shot': 1,
     'Enemy3Shot': 1,
@@ -130,15 +130,15 @@ ENTITY_HEALTH = {
 }
 
 ENTITY_SHOT_DELAY = {
-    'Player1': 20,
+    'Player1': 50,
     'Player2': 15,
-    'Enemy1': 100,
-    'Enemy2': 200,
-    'Enemy3': 200,
-    'Enemy4': 200,
-    'Enemy5': 200,
-    'Enemy6': 200,
-    'Enemy7': 200,
+    'Enemy1': 200,
+    'Enemy2': 180,
+    'Enemy3': 160,
+    'Enemy4': 140,
+    'Enemy5': 120,
+    'Enemy6': 100,
+    'Enemy7': 20,
 }
 
 #M
@@ -158,10 +158,10 @@ PLAYER_KEY_RIGHT = {'Player1':pygame.K_RIGHT,
 PLAYER_KEY_SHOOT = {'Player1':pygame.K_SPACE,
                  'Player2':pygame.K_f}
 
-SPAWN_TIME = 500 #tempo para criar inimigo
+SPAWN_TIME = 800 #tempo para criar inimigo
 
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 2000
+TIMEOUT_LEVEL = 5000
 #w
 WIN_WIDTH = 1299
 WIN_HEIGHT = 735
