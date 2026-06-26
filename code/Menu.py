@@ -20,7 +20,8 @@ class Menu:
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(text_size=60, text="AJUDE O SD PM VIEGAS", text_color=C_BLACK, text_center_pos=((WIN_WIDTH / 2), 70))
             self.menu_text(text_size=60, text="CHEGAR EM SEU OBJETIVO", text_color=C_BLACK, text_center_pos=((WIN_WIDTH / 2), 120))
-            self.menu_text(text_size=30, text="Conquistar o coração do BOSS e então servir no TJM", text_color=C_BLACK, text_center_pos=((WIN_WIDTH / 2), 170))
+            self.menu_text(text_size=30, text="Ele precisa conquistar o máximo de pontos para", text_color=C_BLUE, text_center_pos=((WIN_WIDTH / 2), 170))
+            self.menu_text(text_size=30, text="chegar no coração do BOSS e então servir no TJM",text_color=C_BLUE, text_center_pos=((WIN_WIDTH / 2), 200))
 
 
             for i in range(len(MENU_OPTION)):

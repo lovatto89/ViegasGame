@@ -58,13 +58,15 @@ class Level:
                     elif self.name == 'Level2':
                         choice = random.choice(('Enemy2', ))
                     elif self.name == 'Level3':
-                        choice = random.choice(('Enemy2',))  # criar mais levels
+                        choice = random.choice(('Enemy3', ))  # criar mais levels
                     elif self.name == 'Level4':
-                        choice = random.choice(('Enemy1',))
+                        choice = random.choice(('Enemy4',))
                     elif self.name == 'Level5':
-                        choice = random.choice(('Enemy1',))
+                        choice = random.choice(('Enemy5',))
                     elif self.name == 'Level6':
-                        choice = random.choice(('Enemy1',))
+                        choice = random.choice(('Enemy6',))
+                    elif self.name == 'Level7':
+                        choice = random.choice(('Enemy7',))
                     self.entity_list.append(EntityFactory.get_entity(choice))
 
                 if event.type == EVENT_TIMEOUT:

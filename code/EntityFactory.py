@@ -47,6 +47,12 @@ class EntityFactory:
                     list_bg.append(Background(name=f'Level6Bg{i}', position=(0, 0)))
                     list_bg.append(Background(name=f'Level6Bg{i}', position=(WIN_WIDTH, 0)))
                 return list_bg
+            case 'Level7Bg':
+                list_bg = []
+                for i in range(1):
+                    list_bg.append(Background(name=f'Level7Bg{i}', position=(0, 0)))
+                    list_bg.append(Background(name=f'Level7Bg{i}', position=(WIN_WIDTH, 0)))
+                return list_bg
             #criar mais levels
 
 
@@ -59,3 +65,13 @@ class EntityFactory:
                 return Enemy('Enemy1', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40)))
             case 'Enemy2':
                 return Enemy('Enemy2', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40)))
+            case 'Enemy3':
+                return Enemy('Enemy3', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40)))
+            case 'Enemy4':
+                return Enemy('Enemy4', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40)))
+            case 'Enemy5':
+                return Enemy('Enemy5', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40)))
+            case 'Enemy6':
+                return Enemy('Enemy6', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40)))
+            case 'Enemy7':
+                return Enemy('Enemy7', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40)))
