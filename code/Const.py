@@ -35,13 +35,13 @@ ENTITY_SPEED = {
     'Enemy5': 1,
     'Enemy6': 1,
     'Enemy7': 2,
-    'Enemy1Shot': 5,
-    'Enemy2Shot': 5,
-    'Enemy3Shot': 6,
-    'Enemy4Shot': 7,
-    'Enemy5Shot': 7,
-    'Enemy6Shot': 8,
-    'Enemy7Shot': 8,
+    'Enemy1Shot': 3,
+    'Enemy2Shot': 3,
+    'Enemy3Shot': 3,
+    'Enemy4Shot': 4,
+    'Enemy5Shot': 4,
+    'Enemy6Shot': 4,
+    'Enemy7Shot': 5,
 }
 
 ENTITY_DAMAGE = {
@@ -69,7 +69,7 @@ ENTITY_DAMAGE = {
     'Enemy4Shot': 20,
     'Enemy5Shot': 20,
     'Enemy6Shot': 20,
-    'Enemy7Shot': 50,
+    'Enemy7Shot': 40,
 }
 
 ENTITY_SCORE = {
@@ -90,7 +90,7 @@ ENTITY_SCORE = {
     'Enemy4': 250,
     'Enemy5': 300,
     'Enemy6': 350,
-    'Enemy7': 10,
+    'Enemy7': 500,
     'Enemy1Shot': 0,
     'Enemy2Shot': 0,
     'Enemy3Shot': 0,
@@ -109,17 +109,17 @@ ENTITY_HEALTH = {
     'Level5Bg0': 999,
     'Level6Bg0': 999,
     'Level7Bg0': 999,
-    'Player1': 10,
+    'Player1': 200,
     'Player1Shot': 1,
     'Player2': 300,
     'Player2Shot': 1,
-    'Enemy1': 40,
-    'Enemy2': 60,
-    'Enemy3': 80,
-    'Enemy4': 80,
-    'Enemy5': 100,
-    'Enemy6': 100,
-    'Enemy7': 200,
+    'Enemy1': 20,
+    'Enemy2': 20,
+    'Enemy3': 40,
+    'Enemy4': 40,
+    'Enemy5': 60,
+    'Enemy6': 60,
+    'Enemy7': 80,
     'Enemy1Shot': 1,
     'Enemy2Shot': 1,
     'Enemy3Shot': 1,
@@ -133,12 +133,12 @@ ENTITY_SHOT_DELAY = {
     'Player1': 50,
     'Player2': 15,
     'Enemy1': 200,
-    'Enemy2': 180,
-    'Enemy3': 160,
-    'Enemy4': 140,
-    'Enemy5': 120,
-    'Enemy6': 100,
-    'Enemy7': 20,
+    'Enemy2': 200,
+    'Enemy3': 200,
+    'Enemy4': 160,
+    'Enemy5': 160,
+    'Enemy6': 140,
+    'Enemy7': 120,
 }
 
 #M
@@ -158,10 +158,10 @@ PLAYER_KEY_RIGHT = {'Player1':pygame.K_RIGHT,
 PLAYER_KEY_SHOOT = {'Player1':pygame.K_SPACE,
                  'Player2':pygame.K_f}
 
-SPAWN_TIME = 800 #tempo para criar inimigo
+SPAWN_TIME = 1500 #tempo para criar inimigo
 
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 2000
+TIMEOUT_LEVEL = 40000
 #w
 WIN_WIDTH = 1299
 WIN_HEIGHT = 735
