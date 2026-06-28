@@ -34,14 +34,14 @@ ENTITY_SPEED = {
     'Enemy4': 1,
     'Enemy5': 1,
     'Enemy6': 1,
-    'Enemy7': 1,
+    'Enemy7': 2,
     'Enemy1Shot': 5,
-    'Enemy2Shot': 6,
-    'Enemy3Shot': 7,
-    'Enemy4Shot': 8,
-    'Enemy5Shot': 9,
-    'Enemy6Shot': 10,
-    'Enemy7Shot': 10,
+    'Enemy2Shot': 5,
+    'Enemy3Shot': 6,
+    'Enemy4Shot': 7,
+    'Enemy5Shot': 7,
+    'Enemy6Shot': 8,
+    'Enemy7Shot': 8,
 }
 
 ENTITY_DAMAGE = {
@@ -161,7 +161,7 @@ PLAYER_KEY_SHOOT = {'Player1':pygame.K_SPACE,
 SPAWN_TIME = 800 #tempo para criar inimigo
 
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 10000
+TIMEOUT_LEVEL = 2000
 #w
 WIN_WIDTH = 1299
 WIN_HEIGHT = 735

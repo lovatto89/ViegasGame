@@ -46,7 +46,7 @@ class Level:
                     if shoot is not None:
                         self.entity_list.append(shoot)
                 if ent.name == 'Player1':
-                    self.level_text(text_size=14, text=f'Vida SD PM VIEGAS: {ent.health} | Score: {ent.score}', text_color=C_CYAN, text_pos=(10, 25))
+                    self.level_text(text_size=14, text=f'Vida SD PM VIEGAS: {ent.health} | Score: {ent.score}', text_color=C_WHITE, text_pos=(10, 25))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -56,13 +56,13 @@ class Level:
                     if event.key == pygame.K_ESCAPE:
                         return False
 
-                if event.type == EVENT_ENEMY:  #CRIAÇÃO DE INIMIGO
+                if event.type == EVENT_ENEMY:
                     if self.name == 'Level1':
                         choice = random.choice(('Enemy1', ))
                     elif self.name == 'Level2':
                         choice = random.choice(('Enemy2', ))
                     elif self.name == 'Level3':
-                        choice = random.choice(('Enemy3', ))  # criar mais levels
+                        choice = random.choice(('Enemy3', ))
                     elif self.name == 'Level4':
                         choice = random.choice(('Enemy4',))
                     elif self.name == 'Level5':
@@ -79,8 +79,6 @@ class Level:
                         for ent in self.entity_list:
                             if isinstance(ent, Player) and ent.name == 'Player1':
                                 player_score[0] = ent.score
-                            if isinstance(ent, Player) and ent.name == 'Player2':
-                                player_score[1] = ent.score
                         return True
 
                 found_player = False
@@ -89,32 +87,14 @@ class Level:
                         found_player = True
 
                 if not found_player:
+                    self.game_over_screen()  # ← chama a tela antes de retornar
                     return False
 
-
-
-            #TEXTO QUE APARECE NA TELA
             self.level_text(text_size=14, text=f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', text_color=C_WHITE, text_pos=(10, 5))
-            self.level_text(text_size=14, text=f'fps: {clock.get_fps() :.0f}', text_color=C_WHITE, text_pos=(10, WIN_HEIGHT - 35))
-            self.level_text(text_size=14, text=f'entidades: {len(self.entity_list)}', text_color=C_WHITE, text_pos=(10, WIN_HEIGHT - 20))
             pygame.display.flip()
 
-
-            #VERIFICAR COLISÕES
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
-
-    def game_over(self):
-        overlay = pygame.Surface((WIN_WIDTH, WIN_HEIGHT)), pygame.SRCALPHA
-        overlay.fill((0, 0, 0, 180))
-
-
-        while True:
-            self.window.blit(source=overlay, dest=(0, 0))
-            self.level_text_center(text_size=72, text='GAME OVER', text_color=(220, 30, 30),   text_pos=(WIN_WIDTH // 2, WIN_HEIGHT // 2 - 60))
-            self.level_text_center(text_size=28, text='O SD PM Viegas não conseguiu...', text_color=(255, 255, 255), text_pos=(WIN_WIDTH // 2, WIN_HEIGHT // 2 + 20))
-            self.level_text_center(text_size=22, text='Pressione ESC para voltar ao menu', text_color=(180, 180, 180), text_pos=(WIN_WIDTH // 2, WIN_HEIGHT // 2 + 65))
-            pygame.display.flip()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -124,8 +104,47 @@ class Level:
                     if event.key == pygame.K_ESCAPE:
                         return
 
-    def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
+    def game_over_screen(self):
+        pygame.mixer.music.load('./asset/GameOver.mp3')
+        pygame.mixer.music.play(-1)
+        bg_image = pygame.image.load('./asset/GameOverBg.png').convert()
+        bg_image = pygame.transform.scale(bg_image, (WIN_WIDTH, WIN_HEIGHT))
+
+        clock = pygame.time.Clock()
+        while True:
+            clock.tick(60)
+
+            self.window.blit(bg_image, (0, 0))
+
+            # Texto principal
+            self.level_text(text_size=72, text='VIEGAS NÃO CONSEGUIU CHEGAR',
+                text_color=C_WHITE, text_pos=(WIN_WIDTH // 2, 90), center=True)
+            self.level_text(text_size=72, text='BOSS SEGUIRÁ COM O LOVATTO',
+                text_color=C_WHITE, text_pos=(WIN_WIDTH // 2, 160), center=True)
+            # Texto retornar
+            self.level_text(
+                text_size=20,
+                text='Pressione ESC para voltar ao menu',
+                text_color=C_WHITE,
+                text_pos=(WIN_WIDTH // 2 - 155, WIN_HEIGHT // 2 + 50)
+            )
+
+            pygame.display.flip()
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        pygame.mixer.music.stop()
+                        return  # retorna ao run(), que retorna False para o menu
+
+    def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple, center: bool = False):
         text_font: Font = pygame.font.SysFont(name="lucida Sans Typewriter", size=text_size)
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
-        text_rect: Rect = text_surf.get_rect(left=text_pos[0], top=text_pos[1])
+        if center:
+            text_rect: Rect = text_surf.get_rect(center=text_pos)
+        else:
+            text_rect: Rect = text_surf.get_rect(left=text_pos[0], top=text_pos[1])
         self.window.blit(source=text_surf, dest=text_rect)
